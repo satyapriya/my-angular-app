@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular app</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+	</head>
+	<body ng-app="myapp">
+	  <nav class="navbar navbar-inverse navbar-fixed-top">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	          <span class="sr-only">Toggle navigation</span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="#">LOGO</a>
+	      </div>
+	    </div>
+	  </nav>
+
+	  <div class="jumbotron">
+	    <div class="container">
+	      <h1>Angular App</h1>
+	      <p>Here you can add/edit/delete items to the product listing</p>
+	    </div>
+	  </div>
+
+	  <div class="product-wrap" ng-controller="ProductCtrl">
+	  	<div class="container" >
+	  		<div class="case-label">Cases</div>
+	  		<div class="table-responsive table-wrap" ng-repeat="item in items track by $index">
+		  		<div class="item-details">
+		  			<div class="case-id till" ng-bind="item.caseId"></div>
+		  			<table class="table">
+		  				<tbody>
+		  					<tr>
+		  						<td>
+			  						<div ng-bind="item.name"></div>
+			  						<span class="till" ng-bind="item.address"></span>
+			  					</td>
+		  						<td>
+		  							<div ng-bind="item.handset"></div>
+		  							<span class="till" ng-bind="item.imei"></span>
+		  						</td>
+		  						<td>
+		  							<div ng-bind="item.state"></div>
+		  							<span class="till" ng-bind="item.status"></span>
+		  						</td>
+		  						<td>
+		  							<div ng-bind="item.resolve"></div>
+		  							<span class="till" ng-bind="item.resolveState"></span>
+		  						</td>
+		  						<td>
+		  							<div ng-bind="item.repairCenter"></div>
+		  							<span class="till" ng-bind="item.registerDate"></span>
+		  						</td>
+		  						<td>
+		  							<div ng-bind="item.main"></div>
+		  							<span class="till" ng-bind="item.ip"></span>
+		  						</td>
+		  					</tr>
+		  				</tbody>
+		  			</table>
+		  		</div>
+
+		  		<div class="btn-list">
+		  			<div class="btn-wrap">
+		  				<img src="images/add.png" ng-click="openAddModal()">
+		  				<div class="btn-label">add</div>
+		  			</div>
+		  			<div class="btn-wrap">
+		  				<img src="images/edit.png" ng-click="editItem(item, $index)" >
+		  				<div class="btn-label">edit</div>
+		  			</div>
+		  			<div class="btn-wrap">
+		  				<img src="images/delete.png" ng-click="removeItem($index)">
+		  				<div class="btn-label">delete</div>
+		  			</div>
+		  		</div>
+	  		</div>
+	  		<!-- if no record exists -->
+	  		<div class="btn-list" ng-if="items.length == 0">
+	  			<div class="btn-wrap">
+	  				<img src="img/add.png" ng-click="openAddModal()">
+	  				<div class="btn-label">add</div>
+	  			</div>
+	  		</div>
+	  	</div>
+
+	  	<!-- create modal -->
+	  	<div class="modal fade addModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+				    <form name="productForm" novalidate>
+					    <div class="row">
+					    	<div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="case id" ng-model="item.caseId" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="name" ng-model="item.name" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="address" ng-model="item.address" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="handset" ng-model="item.handset" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="imei" ng-model="item.imei" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="state" ng-model="item.state" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="status" ng-model="item.status" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="resolve" ng-model="item.resolve" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="resolveState" ng-model="item.resolveState" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="repairCenter" ng-model="item.repairCenter" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="registerDate" ng-model="item.registerDate" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="main" ng-model="item.main" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="ip" ng-model="item.ip" required>
+							  </div>
+							</div>
+		  				<button class="btn btn-primary" ng-click="productForm.$invalid ? submitted=true : SaveItem()">add item</button>
+		  			</form>
+			    </div>
+			  </div>
+			</div>
+			<!-- end create modal -->
+
+			<!-- edit modal -->
+	  	<div class="modal fade editModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content" >
+				    <form name="productForm" novalidate>
+					    <div class="row">
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="name" ng-model="item.name" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="address" ng-model="item.address" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="handset" ng-model="item.handset" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="imei" ng-model="item.imei" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="state" ng-model="item.state" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="status" ng-model="item.status" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="resolve" ng-model="item.resolve" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="resolveState" ng-model="item.resolveState" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="repairCenter" ng-model="item.repairCenter" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="registerDate" ng-model="item.registerDate" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="main" ng-model="item.main" required>
+							  </div>
+							  <div class="col-xs-6">
+							    <input type="text" class="form-control" placeholder="ip" ng-model="item.ip" required>
+							  </div>
+							</div>
+		  				<button class="btn btn-primary" ng-click="productForm.$invalid ? submitted=true : updateItem(item)">save item</button>
+		  			</form>
+			    </div>
+
+			  </div>
+			</div>
+			<!-- end edit modal -->
+	  </div> 
+
+	  <footer>
+    	<div class="container" >
+	  	</div>
+	  </footer>
+
+	  <script src="js/jquery.min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+	  <script src="js/angular.min.js"></script>
+	  <script src="js/index.js"></script>
+  </body>
+</html>

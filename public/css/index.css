@@ -1,0 +1,83 @@
+.jumbotron{
+	background: #fff;
+	margin-bottom: 0;
+	padding-bottom: 20px!important;
+}
+.btn-primary{
+	border-radius: 0;
+	background: #0092C6;
+	border:none;
+}
+input{
+	border-radius: 0!important;
+}
+.table-wrap{
+	margin-bottom: 10px;
+}
+.item-details{
+	background: #ffffff;
+	padding: 10px 10px 0;
+}
+.case-label{
+	color: #0092C6;
+	font-size: 25px;
+	padding: 5px 0 15px 0;
+}
+table{
+	margin-bottom: 0!important;
+	border-color: #0092C6;
+}
+.btn-list{
+	border-top: 4px solid #0092C6;
+	padding-top: 20px;
+}
+.btn-wrap{
+	display: inline-block;
+	text-align: center;
+	padding-right: 10px;
+}
+.btn-label{
+	/*font-weight: 200;*/
+	padding-top: 5px;
+	font-size: 12px;
+	color: #0092C6;
+}
+.table>tbody>tr>td{
+	border-color: #CFF3FE;
+	border-right: 2px solid #CFF3FE;
+	padding: 15px;
+}
+.table>tbody>tr>td:last-child{
+	border-right: none;
+}
+.case-id{
+	padding: 0 10px 10px;
+  font-size: 25px;
+  font-weight: 300;
+  border-bottom: 1px solid #CFF3FE;
+}
+.modal-content{
+	padding: 30px;
+}
+.modal-content input{
+	margin-bottom: 15px;
+}
+.single-item{
+	margin-bottom: 30px;
+}
+.product-wrap{
+	background: #CFF3FE;
+}
+.till-bg{
+	background: #CFF3FE;
+}
+.till{
+	color: #0E9CE2;
+}
+.dark{
+	color: #3F3F3F;
+}
+footer{
+	border-top: 1px solid #CFF3FE;
+  padding: 10px 0 0;
+}
